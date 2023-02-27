@@ -1,0 +1,51 @@
+{% extends "dashboard_base.html" %}
+
+{% block title %}Lab Assistant Panel{% endblock  %}
+
+{% block hrefDashboard %}{% endblock hrefDashboard %}
+{% block hrefside2 %}{% endblock hrefside2 %}{% block side2 %}Fund{% endblock %}
+{% block hrefside3 %}{{ url_for('cviews.req_lab') }}{% endblock hrefside3 %}{% block side3 %}Request{% endblock %}
+{% block hrefside4 %}{% endblock hrefside4 %}{% block side4 %}Buy{% endblock  %}
+{% block hrefside5 %}{% endblock hrefside5 %}{% block side5 %}View All{% endblock %}
+{% block hrefNotifications %}{% endblock hrefNotifications %}
+
+
+<!--TOP items-->
+{% block top1_qty %}{{ nchemicals }}{% endblock  %}
+{% block top2_qty %}{{ nglasswares }}{% endblock  %}
+{% block top3_qty %}{{ nequipments }}{% endblock  %}
+{% block top4_qty %}100{% endblock  %}
+
+{% block hreftop1 %}{{ url_for('lviews.Index_chemicals') }}{% endblock %}{% block top1 %}Chemicals{% endblock  %}
+{% block hreftop2 %}{{ url_for('lviews.Index_glasswares') }} {% endblock %}{% block top2 %}Glasswares{% endblock  %}
+{% block hreftop3 %}{{ url_for('lviews.Index_equipments') }} {% endblock %}{% block top3 %}Equipments{% endblock  %}
+{% block hreftop4 %} {% endblock %}{% block top4 %}Out of Stock{% endblock  %}
+
+<!--DOWN items-->
+{% block down1 %}About to Expire{% endblock  %} {% block down1_viewall %} {{ url_for('lviews.about_to_expire') }} {% endblock %}
+
+{% block heading1 %}Item Name{% endblock  %}
+{% block heading2 %}Quantity{% endblock  %}
+{% block heading3 %}Best Before{% endblock  %}
+
+{% block down1tables %}
+
+    {% for row in four_abt_expire %}
+        <tr>
+            <td>{{ row.item_name }}</td>
+            <td>{{ row.in_stock }}</td>
+            <td>{{ row.expiry_date }}</td>
+        </tr>
+
+    {% endfor %}
+
+{% endblock %}
+
+
+
+{% block down2 %}Defective{% endblock  %}{% block down2_viewall %}{{ url_for('lviews.defective_equipments') }}{% endblock %}
+{% block defective4table %}
+    {% for row in defective4table %}
+        <tr><td>{{ row.item_name }}</td></tr>
+    {% endfor %}
+{% endblock  %}

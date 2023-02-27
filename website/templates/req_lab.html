@@ -1,0 +1,163 @@
+{% extends 'datatables.html' %}
+
+{% block title %} Request Table {% endblock  %}
+
+{% block Home %}
+
+{% if session['username']=='hod' %}
+    {{  url_for('hviews.hod_panel')  }}
+{% endif %}
+
+{% if session['username']=='lab' %}
+    {{  url_for('lviews.lab_assistant_panel')  }}
+{% endif %}
+{% endblock  %}
+
+{% block thead %}
+
+<tr>
+    <th>ID</th>    
+    <th>Item Name</th>    
+    <th>Item Type</th>    
+    <th>Required Quantity</th>    
+    <th>Description</th>
+    <th>Status</th>
+     {% if session['username']=='hod' %}
+     <th>Options</th>
+     {% endif %}   
+</tr>
+
+{% endblock  %}
+
+
+
+{% block tbody %}
+
+<!--
+    {% for row in items  %}
+
+        <tr>
+            <td>{{ row.id }}</td>
+            <td>{{ row.item_name }}</td>
+            <td>{{ row.item_type }}</td>
+            <td>{{ row.req_qty }}</td>
+            <td>{{ row.need_for }}</td>
+            <td>{{ row.status }}</td>
+            {% if session['username']=='hod' %}
+            <td><button>Approve</button></td>
+            {% endif %}
+        </tr>
+
+    {% endfor %}
+
+-->    
+
+<tr>
+    <td>CH010</td>
+    <td>Methane</td>
+    <td>Organic</td>
+    <td>10 L</td>
+    <td>MSc Second Year Pratical</td>
+    <td>Pending</td>
+    {% if session['username']=='hod' %}
+    <td><button type="button" class="btn btn-success">Approve</button></td>
+    {% endif %}
+</tr>
+
+<tr>
+    <td>CH015</td>
+    <td>Butane</td>
+    <td>Organic</td>
+    <td>5 L</td>
+    <td>BSc Second Year Pratical</td>
+    <td>Pending</td>
+    {% if session['username']=='hod' %}
+    <td><button type="button" class="btn btn-success">Approve</button></td>
+    {% endif %}
+</tr>
+
+<tr>
+    <td>PH010</td>
+    <td>Flurine</td>
+    <td>Inorganic</td>
+    <td>2 L</td>
+    <td>MSc First Year Pratical</td>
+    <td>Pending</td>
+    {% if session['username']=='hod' %}
+    <td><button type="button" class="btn btn-success">Approve</button></td>
+    {% endif %}
+</tr>
+
+<tr>
+    <td>CH010</td>
+    <td>Methane</td>
+    <td>Organic</td>
+    <td>10 L</td>
+    <td>MSc Second Year Pratical</td>
+    <td>Approved</td>
+    {% if session['username']=='hod' %}
+    <td><button hidden>Approve</button></td>
+    {% endif %}
+</tr>
+
+<tr>
+    <td>CH010</td>
+    <td>Methane</td>
+    <td>Organic</td>
+    <td>10 L</td>
+    <td>MSc Second Year Pratical</td>
+    <td>Approved</td>
+    {% if session['username']=='hod' %}
+    <td><button hidden>Approve</button></td>
+    {% endif %}
+</tr>
+
+<tr>
+    <td>CH010</td>
+    <td>Methane</td>
+    <td>Organic</td>
+    <td>10 L</td>
+    <td>MSc Second Year Pratical</td>
+    <td>Approved</td>
+    {% if session['username']=='hod' %}
+    <td><button hidden>Approve</button></td>
+    {% endif %}
+</tr>
+
+<tr>
+    <td>CH010</td>
+    <td>Methane</td>
+    <td>Organic</td>
+    <td>10 L</td>
+    <td>MSc Second Year Pratical</td>
+    <td>Approved</td>
+    {% if session['username']=='hod' %}
+    <td><button hidden>Approve</button></td>
+    {% endif %}
+</tr>
+
+<tr>
+    <td>CH010</td>
+    <td>Methane</td>
+    <td>Organic</td>
+    <td>10 L</td>
+    <td>MSc Second Year Pratical</td>
+    <td>Approved</td>
+    {% if session['username']=='hod' %}
+    <td><button hidden>Approve</button></td>
+    {% endif %}
+</tr>
+
+<tr>
+    <td>CH010</td>
+    <td>Methane</td>
+    <td>Organic</td>
+    <td>10 L</td>
+    <td>MSc Second Year Pratical</td>
+    <td>Approved</td>
+    {% if session['username']=='hod' %}
+    <td><button hidden>Approve</button></td>
+    {% endif %}
+</tr>
+
+{% endblock  %}

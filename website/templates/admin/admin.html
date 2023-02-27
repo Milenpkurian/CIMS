@@ -1,0 +1,55 @@
+{% extends "dashboard_base.html" %}
+
+{% block title %}Admin Panel{% endblock  %}
+
+{% block side2 %}Fund{% endblock %}
+{% block side3 %}Departments{% endblock %}
+{% block side4 %}Buy{% endblock  %}
+{% block side5 %}Message{% endblock  %}
+
+
+<!--TOP items-->
+{% block top1_qty %}100{% endblock  %}
+{% block top2_qty %}400{% endblock  %}
+{% block top3_qty %}50{% endblock  %}
+{% block top4_qty %}100{% endblock  %}
+
+{% block top1 %}Stock Arrived{% endblock  %}
+{% block top2 %}Stock Needed{% endblock  %}
+{% block top3 %}Out Of Stock{% endblock  %}
+{% block top4 %}Defective{% endblock  %}
+
+<!--DOWN items-->
+{% block down1 %}Urgent{% endblock  %} 
+
+{% block heading1 %}Department{% endblock  %}
+{% block heading2 %}Item Name{% endblock  %}
+{% block heading3 %}Quantity{% endblock  %}
+{% block row1col1 %}Computer Science{% endblock  %}
+{% block row1col2 %}Monitor{% endblock  %}
+{% block row1col3 %}3{% endblock  %}
+{% block row2col1 %}Chemistry{% endblock  %}
+{% block row2col2 %}Methane{% endblock  %}
+{% block row2col3 %}4 L{% endblock  %}
+{% block row3col1 %}Physics{% endblock  %}
+{% block row3col2 %}Magnetometer{% endblock  %}
+{% block row3col3 %}5{% endblock  %}
+{% block row4col1 %}Biology{% endblock  %}
+{% block row4col2 %}Microscope{% endblock  %}
+{% block row4col3 %}2{% endblock  %}
+
+{% block down2 %}Notifications{% endblock  %}
+{% block down2val %}
+<br>
+<table>
+    <tr>
+        <td><i>CS HOD </i>sent you a list of essentials.</td>
+    </tr>
+    <tr>
+        <td>You have <i>3 urgent </i>tasks pending.</td>
+    </tr>
+    <tr>
+        <td>Received <i>PF Fund </i>for buying Chemistry lab inventories</td>
+    </tr>
+</table>
+{% endblock  %}

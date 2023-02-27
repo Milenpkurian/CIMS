@@ -1,0 +1,47 @@
+{% extends '/lab/crud_chemicals/crud_base.html' %}
+
+
+{% block heading %} About To Expire {% endblock %}
+
+{% block body %}
+
+<h1><center>About To Expire</center></h1>
+<table id="ae" class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+
+            <th>ID</th>
+            <th>Item Name</th>
+            <th>Item Type</th>
+            <th>In Stock</th>
+            <th>Received Date</th>
+            <th>Expiry Date</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in abt_expire %}
+        <tr>
+            <td>{{row.id}}</td>
+            <td>{{row.item_name}}</td>
+            <td>{{row.item_type}}</td>
+            <td>{{row.in_stock}}</td>
+            <td>{{row.received_date}}</td>
+            <td>{{row.expiry_date}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
+
+
+{% block datatables %}
+
+<script>
+    $(document).ready( function () {
+        $('#ae').DataTable();
+    } );
+</script>
+
+{% endblock %}

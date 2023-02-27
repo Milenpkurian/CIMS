@@ -1,0 +1,62 @@
+{% extends "dashboard_base.html" %}
+
+{% block title %}HOD Panel{% endblock  %}
+
+{% block hrefDashboard %}{% endblock hrefDashboard %}
+{% block hrefside2 %}{% endblock hrefside2 %}{% block side2 %}Fund{% endblock %}
+{% block hrefside3 %}{% endblock hrefside3 %}{% block side3 %}Request Admin{% endblock %}
+{% block hrefside4 %}{% endblock hrefside4 %}{% block side4 %}Buy{% endblock  %}
+{% block hrefside5 %}{% endblock hrefside5 %}{% block side5 %}View All{% endblock %}
+{% block hrefNotifications %}{% endblock hrefNotifications %}
+
+
+<!--TOP items-->
+{% block hreftop1 %}{{ url_for('lviews.lab_assistant_panel') }} {% endblock %}{% block top1_qty %}  {{ nLabItems }}  {% endblock  %}
+{% block hreftop2 %}{{ url_for('hviews.Index_furniture') }} {% endblock %}{% block top2_qty %}  {{ nfurniture }}  {% endblock  %}
+{% block hreftop3 %}{{ url_for('hviews.Index_electronics') }} {% endblock %}{% block top3_qty %}  {{ nelectronics }}  {% endblock  %}
+{% block hreftop4 %}{{ url_for('hviews.Index_computers') }} {% endblock %}{% block top4_qty %}  {{ ncomputers }}  {% endblock  %}
+
+{% block top1 %}Lab items{% endblock  %}
+{% block top2 %}Furniture{% endblock  %}
+{% block top3 %}Electronics{% endblock  %}
+{% block top4 %}Computers{% endblock  %}
+
+<!--DOWN items-->
+{% block down1 %}Requests to Access{% endblock  %} {% block down1_viewall %} {{ url_for('cviews.req_lab') }} {% endblock %}
+
+{% block heading1 %}Id{% endblock  %}
+{% block heading2 %}Item Name{% endblock  %}
+{% block heading3 %}Quantity{% endblock  %}
+{% block down1tables %}
+
+<tr>
+    <td>CH010</td>
+    <td>Methane</td>
+    <td>5 L</td>
+</tr>
+<tr>
+    <td>CH010</td>
+    <td>Methane</td>
+    <td>5 L</td>
+</tr>
+<tr>
+    <td>CH010</td>
+    <td>Methane</td>
+    <td>5 L</td>
+</tr>
+<tr>
+    <td>CH010</td>
+    <td>Methane</td>
+    <td>5 L</td>
+</tr>
+
+{% endblock %}
+
+{% block down2 %}Defective{% endblock  %}{% block down2_viewall %}{{ url_for('hviews.defective') }}{% endblock %}
+{% block defective4table %}
+    {% for row in defective  %}
+        <tr>
+            <td>{{row.item_name}}</td>
+        </tr>
+    {% endfor %}
+{% endblock  %}

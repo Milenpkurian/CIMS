@@ -1,0 +1,291 @@
+{% extends '/lab/crud_chemicals/crud_base.html' %}
+{% include '/hod/crud_furniture/crud_header.html' %}
+
+
+
+{% block title %} Department Register-Furniture {% endblock %}
+
+
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col md-12">
+
+            <div class="jumbotron p-3">
+
+                <h2>Manage <b>Items </b>  <button type="button"  class="btn btn-success float-right"
+                data-toggle="modal" data-target="#mymodal">Add New Item</button> </h2>
+
+
+                {% with messages = get_flashed_messages() %}
+
+                {% if messages %}
+
+                {% for message in messages %}
+
+                <div class="alert alert-success alert-dismissable" role="alert">
+
+                    <button type="button" class="close" data-dismiss="alert" aria-label="close">
+
+                        <span aria-hidden="true">x</span>
+
+                    </button>
+
+
+                {{message}}
+
+
+                </div>
+
+
+                {% endfor %}
+
+                {% endif %}
+                {% endwith %}
+
+
+                <table class="table table-bordered" id="furniture">
+                  <thead class="thead-dark">
+                     <tr>
+
+                        <th>Stock ID</th>
+                        <th>Item Name</th>
+                        <th>Quantity</th>
+                        <th>Defective</th>
+                        <th>Options</th>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                     {% for row in items %}
+                     <tr>
+                         <td>{{row.id}}</td>
+                         <td>{{row.item_name}}</td>
+                         <td>{{row.quantity}}</td>
+                         <td>{{row.defective}}</td>
+                         <td>
+                             <a href="/update_furniture/{{row.id}}" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit{{row.id}}">Edit</a>
+                             <a href="{{ url_for('hviews.delete_furniture',id=row.id) }}" class="btn btn-danger btn-xs"  onclick="return confirm('Are You Sure To Delete ?')">Delete</a>
+                         </td>
+                     </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+
+      {% for row in items %}
+
+
+                  <!-- Modal Edit Item-->
+<div id="modaledit{{row.id}}" class="modal fade" role="dialog">
+   <div class="modal-dialog">
+
+
+      <div class="modal-content">
+
+
+         <div class="modal-header">
+
+
+            <h4 class="modal-title">Update Information</h4>
+
+
+         </div>
+
+
+         <div class="modal-body">
+
+
+            <form action="{{url_for('hviews.update_furniture')}}" method="POST">
+
+
+               <div class="form-group">
+
+
+                  <label>Id:</label>
+                   <input type="hidden"  name="id" value="{{row.id}}">
+
+                  <input type="text" class="form-control" name="id" value="{{row.id}}">
+
+
+               </div>
+
+
+
+               <div class="form-group">
+
+
+                  <label>Item Name:</label>
+
+                  <input type="text" class="form-control" name="item_name" value="{{row.item_name}}">
+
+
+               </div>
+
+
+               <div class="form-group">
+
+
+                  <label>Quantity:</label>
+
+                  <input type="text" class="form-control" name="quantity" value="{{row.quantity}}">
+
+
+               </div>
+               <div class="form-group">
+
+
+                  <label>Defective:</label>
+
+                  <input type="text" class="form-control" name="defective" value="{{row.defective}}">
+
+
+               </div>
+
+
+               <div class="form-group">
+
+
+                  <button class="btn btn-primary" type="submit">Update</button>
+
+
+               </div>
+
+
+            </form>
+
+
+         </div>
+
+
+         <div class="modal-footer">
+
+
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+
+         </div>
+
+
+      </div>
+
+
+   </div>
+
+</div>
+
+
+                    {% endfor %}
+
+
+
+
+            </div>
+
+
+
+                  <!-- Modal Add Item-->
+
+
+<div id="mymodal" class="modal fade" role="dialog">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+
+            <h4 class="modal-title">Add Item</h4>
+         </div>
+         <div class="modal-body">
+
+            <form action="{{url_for('hviews.insert_furniture')}}" method="POST">
+
+
+               <div class="form-group">
+
+                  <label>Id:</label>
+                  <input type="text" class="form-control" name="id" required="1">
+
+
+               </div>
+
+
+                <div class="form-group">
+
+
+                  <label>Item Name:</label>
+                  <input type="text" class="form-control" name="item_name" required="1">
+
+
+               </div>
+
+
+                <div class="form-group">
+
+
+                  <label>Quantity:</label>
+                  <input type="text" class="form-control" name="quantity" required="1">
+
+
+               </div>
+               <div class="form-group">
+
+
+                  <label>Defective:</label>
+                  <input type="text" class="form-control" name="defective" required="1">
+
+
+               </div>
+
+               <div class="form-group">
+
+
+                  <button class="btn btn-primary" type="submit">Add Item</button>
+
+
+               </div>
+
+
+            </form>
+
+
+         </div>
+
+
+         <div class="modal-footer">
+
+
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+
+         </div>
+
+
+      </div>
+
+
+   </div>
+
+
+</div>
+
+
+
+
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+{% endblock %}
+
+{% block datatables %}
+<script>
+   $(document).ready( function () {
+      $('#furniture').DataTable();
+  } );
+</script>
+{% endblock %}

@@ -1,0 +1,122 @@
+<!Doctype HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}" type="text/css"/>
+</head>
+
+
+<body>
+    
+    <div id="mySidenav" class="sidenav">
+    <p class="logo">{{ session.username }}</p>
+  <a href="{% block hrefDashboard %}{% endblock hrefDashboard %}" class="icon-a"><i class="fa fa-dashboard icons"></i>   Dashboard</a>
+  <a href="{% block hrefside1 %}{% endblock hrefside1 %}"class="icon-a"><i class="fa fa-users icons"></i>  {% block side1 %}{% endblock %} </a>
+  <a href="{% block hrefside2 %}{% endblock hrefside2 %}"class="icon-a"><i class="fa fa-list icons"></i>   {% block side2 %}{% endblock  %}</a>
+  <a href="{% block hrefside3 %}{% endblock hrefside3 %}"class="icon-a"><i class="fa fa-shopping-bag icons"></i>  {% block side3 %}{% endblock  %} </a>
+  <a href="{% block hrefside4 %}{% endblock hrefside4 %}"class="icon-a"><i class="fa fa-tasks icons"></i>  {% block side4 %}{% endblock  %} </a>
+  <a href="{% block hrefside5 %}{% endblock hrefside5 %}"class="icon-a"><i class="fa fa-user icons"></i>   {% block side5 %}{% endblock  %}</a>
+  <a href="{% block hrefNotifications %}{% endblock hrefNotifications %}"class="icon-a"><i class="fa fa-list-alt icons"></i>   Notifications</a>
+
+</div>
+<div id="main">
+
+    <div class="head">
+        <div class="col-div-6">
+<span style="font-size:30px;cursor:pointer; color: white;" class="nav"  > Dashboard</span>
+<span style="font-size:30px;cursor:pointer; color: white;" class="nav2"  > Dashboard</span>
+</div>
+    
+    <div class="col-div-6">
+    <div class="profile">
+
+        <img src="{{url_for('static',filename= 'dashboard_admin.png' )}}" class="pro-img" />
+        <p> <span><a class="a_tag" href="{{ url_for('logout') }}">Logout</a></span></p>
+    </div>
+</div>
+    <div class="clearfix"></div>
+</div>
+
+    <div class="clearfix"></div>
+    <br/>
+    
+    <div class="col-div-3">
+        <div class="box">
+            <a href="{% block hreftop1 %} {% endblock %}"><p>{% block top1_qty %}{% endblock  %}<br/><span> {% block top1 %}{% endblock  %}</span></p></a>
+            <i class="fa fa-users box-icon"></i>
+        </div>
+    </div>
+    <div class="col-div-3">
+        <div class="box">
+            <a href="{% block hreftop2 %} {% endblock %}"><p>{% block top2_qty %}{% endblock  %}<br/><span>{% block top2 %}{% endblock top2 %}</span></p></a>
+            <i class="fa fa-list box-icon"></i>
+        </div>
+    </div>
+    <div class="col-div-3">
+        <div class="box">
+            <a href="{% block hreftop3 %} {% endblock %}"><p>{% block top3_qty %}{% endblock  %}<br/><span>{% block top3 %}{% endblock  %}</span></p></a>
+            <i class="fa fa-shopping-bag box-icon"></i>
+        </div>
+    </div>
+    <div class="col-div-3">
+        <div class="box">
+            <a href="{% block hreftop4 %} {% endblock %}"><p>{% block top4_qty %}{% endblock  %}<br/><span>{% block top4 %}{% endblock  %}</span></p></a>
+            <i class="fa fa-tasks box-icon"></i>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <br/><br/>
+    <div class="col-div-8">
+        <div class="box-8">
+        <div class="content-box">
+            <p>{% block down1 %}{% endblock  %} <span><a href= "{% block down1_viewall %}{% endblock %}">View All</a></span></p>
+            <br/>
+            <table>
+  <tr>
+    <th>{% block heading1 %}{% endblock  %}</th>
+    <th>{% block heading2 %}{% endblock  %}</th>
+    <th>{% block heading3 %}{% endblock  %}</th>
+  </tr>
+  {% block down1tables %}{% endblock %}
+  
+  
+</table>
+        </div>
+    </div>
+    </div>
+
+    <div class="col-div-4">
+        <div class="box-4">
+            <div class="content-box">
+                <p>{% block down2 %}{% endblock  %} <span><a href="{% block down2_viewall %}{% endblock %}">View All</a> </span></p><br/>
+
+                   <table><tr><th>Equipments</th></tr>{% block defective4table %}{% endblock  %}</table> 
+               
+            </div>
+        </div>
+    </div>
+        
+    <div class="clearfix"></div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(".nav2").click(function(){
+    $("#mySidenav").css('width','300px');
+    $("#main").css('margin-left','300px');
+    $(".logo").css('visibility', 'visible');
+     $(".icon-a").css('visibility', 'visible');
+     $(".icons").css('visibility', 'visible');
+     $(".nav").css('display','block');
+      $(".nav2").css('display','none');
+ });
+
+</script>
+
+</body>
+
+
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.2/css/jquery.dataTables.css">
+
+   <title>Document</title>
+</head>
+<body>
+   <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+   <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <div class="modal-header">
+   
+               <h4 class="modal-title">Request</h4>
+            </div>
+            <div class="modal-body">
+   
+               <form action="{{url_for('lviews.insert_chemicals')}}" method="POST">
+   
+   
+                  <div class="form-group">
+   
+                     <label>Id:</label>
+                     <input type="text" class="form-control" name="id" required="1">
+   
+   
+                  </div>
+   
+   
+                   <div class="form-group">
+   
+   
+                     <label>Item Name:</label>
+                     <input type="text" class="form-control" name="item_name" required="1">
+   
+   
+                  </div>
+   
+   
+                   <div class="form-group">
+   
+   
+                     <label>Item Type:</label>
+                     <input type="text" class="form-control" name="item_type" required="1">
+   
+   
+                  </div>
+                  <div class="form-group">
+   
+   
+                     <label>Required Quantity:</label>
+                     <input type="text" class="form-control" name="req_qty" required="1">
+   
+   
+                  </div>
+                  <div class="form-group">
+   
+   
+                     <label>Need For:</label>
+                     <input type="date" class="form-control" name="need_for" required="1">
+   
+   
+                  </div>
+   
+   
+   
+                  <div class="form-group">
+   
+   
+                     <button class="btn btn-primary" type="submit">Request</button>
+   
+   
+                  </div>
+   
+   
+               </form>
+   
+   
+            </div>
+            <div class="modal-footer">
+
+
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+   
+   
+            </div>
+   
+   
+         </div>
+   
+   
+      </div>
+   
+   
+   </div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
+

@@ -1,0 +1,42 @@
+{% extends '/lab/crud_chemicals/crud_base.html' %}
+
+{% block title %}Defective {% endblock %}
+
+{% block body %}
+
+<h1><center> Defective Equipments</center></h1>
+<table id="de" class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+
+            <th>ID</th>
+            <th>Item Name</th>
+            <th>Quantity</th>
+            <th>Defective</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in defective  %}
+        <tr>
+            <td>{{row.id}}</td>
+            <td>{{row.item_name}}</td>
+            <td>{{row.quantity}}</td>
+            <td>{{row.defective}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
+
+
+{% block datatables %}
+
+<script>
+    $(document).ready( function () {
+        $('#de').DataTable();
+    } );
+</script>
+
+{% endblock %}
